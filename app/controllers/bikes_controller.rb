@@ -1,12 +1,13 @@
 class BikesController < ApplicationController
 
   def index
-    render json: {message: "Hello there."}
+    @bikes = Bike.all 
+    render template: "bikes/index"
   end
   
   def show
-    render json: {message: "Hello there."}
-    
+    @bike = Bike.find_by(id: 2)
+    render template: "bikes/show"
   end
   
   def create
