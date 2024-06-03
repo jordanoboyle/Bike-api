@@ -6,7 +6,7 @@ class BikesController < ApplicationController
   end
   
   def show
-    @bike = Bike.find_by(id: 2)
+    @bike = Bike.find_by(id: params[:id])
     render template: "bikes/show"
   end
   
