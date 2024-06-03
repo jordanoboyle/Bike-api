@@ -11,6 +11,13 @@ class BikesController < ApplicationController
   end
   
   def create
+    @bike = Bike.new()
+    @bike.name = "Test from RAILS"
+    @bike.brand = "My own brand"
+    @bike.price = 5000
+    @bike.image_url = "this should be a url"
+
+    @bike.save
     render json: {message: "Hello there."}
     
   end
