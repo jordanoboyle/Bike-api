@@ -12,19 +12,30 @@ class BikesController < ApplicationController
   
   def create
     @bike = Bike.new()
-    @bike.name = "Test from RAILS"
-    @bike.brand = "My own brand"
-    @bike.price = 5000
-    @bike.image_url = "this should be a url"
+    @bike.name = params[:name]
+    @bike.brand = params[:brand]
+    @bike.price = params[:price]
+    @bike.image_url = params[:image_url]
 
-    @bike.save
-    render json: {message: "Hello there."}
-    
+    if @bike.save
+      render json: {message: "New Bike has been saved"}
+    else
+      render json: {ERRORS: @bike.errors.full_messages}
+    end
   end
   
   def update
-    render json: {message: "Hello there."}
+    @bike = Bike.find_by(id: 6)
+    @bike.name = "Pro Performer 29: Mandalorian Edition"
+    @bike.brand = "BMX"
+    @bike.price = 1100
+    @bike.image_url = "https://gtbicycles.com/cdn/shop/files/Mando_3Q.jpg?v=1698340474&width=900"
     
+    if @bike.save
+      render json: {message: "Bike information update saved."}
+    else
+      render json: {message: @bike.errors.full_messages}
+    end
   end
   
   def destroy
