@@ -25,11 +25,11 @@ class BikesController < ApplicationController
   end
   
   def update
-    @bike = Bike.find_by(id: 6)
-    @bike.name = "Pro Performer 29: Mandalorian Edition"
-    @bike.brand = "BMX"
-    @bike.price = 1100
-    @bike.image_url = "https://gtbicycles.com/cdn/shop/files/Mando_3Q.jpg?v=1698340474&width=900"
+    @bike = Bike.find_by(id: params[:id])
+    @bike.name = params[:name] || @bike.name
+    @bike.brand = params[:brand] || @bike.brand
+    @bike.price = params[:price] || @bike.price
+    @bike.image_url = params[:image_url] || @bike.image_url
     
     if @bike.save
       render json: {message: "Bike information update saved."}
