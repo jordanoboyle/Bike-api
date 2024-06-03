@@ -39,7 +39,7 @@ class BikesController < ApplicationController
   end
   
   def destroy
-    @bike = Bike.find_by(id: 8)
+    @bike = Bike.find_by(id: params[:id])
     
     if @bike.destroy
       render json: {message: "Hello there."}
@@ -47,5 +47,5 @@ class BikesController < ApplicationController
       render json: {ERRORS: @bike.errors.full_messages}
     end
   end
-  
+
 end
