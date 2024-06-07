@@ -14,4 +14,10 @@ Rails.application.routes.draw do
   post "/bikes", controller: "bikes", action: "create"
   patch "/bikes/:id", controller: "bikes", action: "update"
   delete "/bikes/:id", controller: "bikes", action: "destroy"
+
+  # Users Controller Routes
+  create "/users", controller: "users", action: "create"
+  # Session Routes
+  create "/users", controller: "sessions", action: "create"
+
 end

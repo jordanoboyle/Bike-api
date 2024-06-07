@@ -39,7 +39,7 @@ class BikesController < ApplicationController
   end
   
   def destroy
-    @bike = Bike.find_by(id: params[:id])
+    @bike = Bike.find_by(id: params[:id]) 
     
     if @bike.destroy
       render json: {message: "Hello there."}
