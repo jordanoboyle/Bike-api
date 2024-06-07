@@ -18,6 +18,6 @@ Rails.application.routes.draw do
   # # Users Controller Routes
   post "/users", controller: "users", action: "create"
   # # Session Routes
-  # create "/users", controller: "sessions", action: "create"
+  post "/sessions", controller: "sessions", action: "create"
 
 end
