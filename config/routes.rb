@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   delete "/bikes/:id", controller: "bikes", action: "destroy"
 
   # # Users Controller Routes
-  create "/users", controller: "users", action: "create"
+  post "/users", controller: "users", action: "create"
   # # Session Routes
   # create "/users", controller: "sessions", action: "create"
 
