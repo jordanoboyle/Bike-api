@@ -3,7 +3,7 @@ class Order < ApplicationRecord
 
   ##BELONGS TO
   belongs_to :bike
-  belongs_to :order
+  belongs_to :user
 
   
 end

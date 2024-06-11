@@ -5,10 +5,13 @@ class OrdersController < ApplicationController
       user_id: 1,
       bike_id: 2,
       quantity: 1,
-      price: 500,
+      subtotal: 500,
       tax: 50,
-      total: 
+      total: 550,
     )
+    if order.save
+      render json: {message: "order saved"}
+    end
   end
     
   def show
