@@ -1,7 +1,14 @@
 class OrdersController < ApplicationController
 
   def create
-    render json: {message: "hellow there"}
+    order = Order.new(
+      user_id: 1,
+      bike_id: 2,
+      quantity: 1,
+      price: 500,
+      tax: 50,
+      total: 
+    )
   end
     
   def show
