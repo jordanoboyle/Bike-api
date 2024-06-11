@@ -2,16 +2,23 @@ class OrdersController < ApplicationController
 
   def create
     p current_user
+    bike = Bike.find_by(id: params[:bike_id])
+    q = params[:quantity].to_i
+    tax_rate = (bike.price * 0.10) * q
+    total_complete = (bike.price * q) + tax_rate
+
     @order = Order.new(
-      user_id: params[:user_id], #from current user
-      bike_id: params[:bike_id],
-      quantity: params[:quantity], 
-      subtotal: params[:subtotal], # from bike
-      tax: params[:tax], #need to make q based
-      total: params[:total], #need to make q based
+      user_id: current_user.id, 
+      bike_id: bike.id,
+      quantity: q, 
+      subtotal: bike.price * q, # from bike
+      tax: tax_rate,#need to make q based
+      total: total_complete, #need to make q based
     )
     if @order.save
       render template: "orders/show"
+    else
+      render json: {ERRORS: order.errors.full_messages}
     end
   end
     
