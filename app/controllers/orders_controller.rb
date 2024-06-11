@@ -10,17 +10,19 @@ class OrdersController < ApplicationController
       total: 550,
     )
     if order.save
-      render json: {message: "order saved"}
+      render template: "orders/show"
     end
   end
     
   def show
-    render json: {message: "hellow there"}
+    @order = Order.find_by(id: 2)
+    render template: "orders/show"
       
   end
       
   def index
-    render json: {message: "hellow there"}
+    @orders = Order.all
+    render template: "orders/index"
 
   end
 end
