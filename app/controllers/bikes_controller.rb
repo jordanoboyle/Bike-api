@@ -1,9 +1,7 @@
 class BikesController < ApplicationController
 
   def index
-    pp "this is the user"
     p current_user
-    pp "this is the user"
     @bikes = Bike.all 
     render template: "bikes/index"
   end
